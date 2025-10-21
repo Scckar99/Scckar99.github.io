@@ -1,5 +1,4 @@
 import { rehypeHeadingIds } from '@astrojs/markdown-remark'
-import vercel from '@astrojs/vercel'
 import AstroPureIntegration from 'astro-pure'
 import { defineConfig } from 'astro/config'
 import rehypeKatex from 'rehype-katex'
@@ -25,19 +24,21 @@ import config from './src/site.config.ts'
 // https://astro.build/config
 export default defineConfig({
   // Top-Level Options
-  site: 'https://astro-pure.js.org',
+  site: 'https://scckar99.github.io',
   // Deploy to a sub path; See https://astro-pure.js.org/docs/setup/deployment#platform-with-base-path
   // base: '/astro-pure/',
   trailingSlash: 'never',
 
   // Adapter
   // https://docs.astro.build/en/guides/deploy/
-  // 1. Vercel (serverless)
-  adapter: vercel(),
-  output: 'server',
-  // 2. Vercel (static)
+  // 1. GitHub Pages (static)
+  output: 'static',
+  // 2. Vercel (serverless)
+  // adapter: vercel(),
+  // output: 'server',
+  // 3. Vercel (static)
   // adapter: vercelStatic(),
-  // 3. Local (standalone)
+  // 4. Local (standalone)
   // adapter: node({ mode: 'standalone' }),
   // output: 'server',
   // ---
