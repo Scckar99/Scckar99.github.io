@@ -5,14 +5,22 @@
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: 'Satoshi';
   src: url('/fonts/Satoshi-VariableItalic.ttf') format('truetype');
   font-style: italic;
   font-display: swap;
 }
+
+@font-face {
+  font-family: 'PingFang';
+  src: url('/fonts/PingFang-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
 html {
-  font-family: 'Satoshi', sans-serif;
+  font-family: 'Satoshi', 'PingFang', 'Microsoft YaHei' ,sans-serif;
 }
 
 /* Theme */
