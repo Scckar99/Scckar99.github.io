@@ -38,7 +38,7 @@ const headings = [
 
   {/* tools */}
   <h2 id='tools'>Tools</h2>
-  <p>Current support tools as follow:</p>
+  <p>当前使用的一些工具:</p>
   <ToolSection
     class='mb-5'
     title='Design'
@@ -56,16 +56,28 @@ const headings = [
     title='Productivity'
     tools={[
       {
+        name: 'VS Code',
+        description: 'IDE',
+        href: 'https://code.visualstudio.com/',
+        icon: import('@/assets/tools/vscode.svg?raw')
+      },
+      {
+        name: 'Pycharm',
+        description: 'IDE',
+        href: 'https://www.jetbrains.com/pycharm/',
+        icon: import('@/assets/tools/Pycharm.svg?raw')
+      },
+      {
+        name: 'Cursor',
+        description: 'AI IDE',
+        href: 'https://cursor.com/cn/',
+        icon: import('@/assets/tools/cursor.svg?raw')
+      },
+      {
         name: 'Chrome',
         description: 'Browser',
         href: 'https://www.google.com/chrome/',
         icon: import('@/assets/tools/chrome.svg?raw')
-      },
-      {
-        name: 'Firefox',
-        description: 'Browser',
-        href: 'https://www.mozilla.org/en-US/firefox',
-        icon: import('@/assets/tools/firefox.svg?raw')
       }
     ]}
   />
