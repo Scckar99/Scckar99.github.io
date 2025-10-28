@@ -4,13 +4,13 @@ import PageLayout from '@/layouts/CommonPage.astro'
 import Substats from '@/components/about/Substats.astro'
 import ToolSection from '@/components/about/ToolSection.astro'
 
-// 导入所有 SVG 文件
-import photoshopSvg from '@/assets/tools/photoshop.svg?raw'
-import vscodeSvg from '@/assets/tools/vscode.svg?raw'
-import pycharmSvg from '@/assets/tools/Pycharm.svg?raw'
-import cursorSvg from '@/assets/tools/cursor.svg?raw'
-import chromeSvg from '@/assets/tools/chrome.svg?raw'
-import windows11Svg from '@/assets/tools/windows11.svg?raw'
+// 使用动态导入，返回 Promise 类型
+const photoshopSvg = import('@/assets/tools/photoshop.svg?raw')
+const vscodeSvg = import('@/assets/tools/vscode.svg?raw')
+const pycharmSvg = import('@/assets/tools/Pycharm.svg?raw')
+const cursorSvg = import('@/assets/tools/cursor.svg?raw')
+const chromeSvg = import('@/assets/tools/chrome.svg?raw')
+const windows11Svg = import('@/assets/tools/windows11.svg?raw')
 
 const headings = [
   { depth: 2, slug: 'hobbies', text: 'Hobbies' },
