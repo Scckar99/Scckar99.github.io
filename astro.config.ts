@@ -56,6 +56,7 @@ export default defineConfig({
     // mdx(),
     AstroPureIntegration(config),
     (await import('@playform/compress')).default({
+      CSS: false,
       SVG: false,
       Exclude: ['index.*.js']
     }),
