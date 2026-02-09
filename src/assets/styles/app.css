@@ -1,26 +1,20 @@
 /* Font */
 @font-face {
   font-family: 'Satoshi';
-  src: url('/fonts/Satoshi-Variable.ttf') format('truetype');
+  src: url('/fonts/Satoshi-Variable.woff2') format('woff2');
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
   font-family: 'Satoshi';
-  src: url('/fonts/Satoshi-VariableItalic.ttf') format('truetype');
+  src: url('/fonts/Satoshi-VariableItalic.woff2') format('woff2');
   font-style: italic;
   font-display: swap;
 }
 
-@font-face {
-  font-family: 'PingFang';
-  src: url('/fonts/PingFang-Regular.ttf') format('truetype');
-  font-display: swap;
-}
-
 html {
-  font-family: 'Satoshi', 'PingFang', 'Microsoft YaHei' ,sans-serif;
+  font-family: 'Satoshi', 'PingFang SC', 'Microsoft YaHei', sans-serif;
 }
 
 /* Theme */

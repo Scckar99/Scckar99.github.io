@@ -14,14 +14,14 @@
     "new": "astro-pure new",
     "format": "prettier --write  '**/*.{js,jsx,ts,tsx,md,mdx,astro}'",
     "lint": "eslint --fix 'src/**/*.{js,ts,jsx,tsx,astro}'",
-    "yijiansilian": "bun lint && bun sync && bun check && bun format",
+    "yijiansilian": "pnpm run lint && pnpm run sync && pnpm run check && pnpm run format",
     "clean": "rm -rf .astro .vercel dist"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/markdown-remark": "^6.3.8",
     "@astrojs/rss": "^4.0.12",
-    "@astrojs/vercel": "^8.2.2",
+
     "@playform/compress": "^0.2.0",
     "@waline/client": "^3.6.0",
     "astro": "^5.12.0",
