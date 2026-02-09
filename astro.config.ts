@@ -55,14 +55,13 @@ export default defineConfig({
     // sitemap(),
     // mdx(),
     AstroPureIntegration(config),
-    (await import('@playform/compress')).default({
-      CSS: false,
-      SVG: false,
-      Exclude: ['index.*.js']
-    }),
-
-    // Temporary fix vercel adapter
-    // static build method is not needed
+    // @playform/compress disabled: clean-css@5.3.3 crashes during CSS tokenization
+    // Astro/Vite already handles minification during build
+    // (await import('@playform/compress')).default({
+    //   CSS: false,
+    //   SVG: false,
+    //   Exclude: ['index.*.js']
+    // }),
   ],
   // root: './my-project-directory',
 
