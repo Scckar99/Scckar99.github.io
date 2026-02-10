@@ -56,6 +56,7 @@ span.katex-display {
   margin-bottom: 0.5rem;
   border-radius: 0.5rem;
   background-color: hsl(var(--muted) / var(--un-bg-opacity, 1)) !important;
+  color: hsl(var(--foreground) / 1) !important;
 
   /* Code container */
   & pre {
