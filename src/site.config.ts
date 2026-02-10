@@ -9,7 +9,7 @@ export const theme: ThemeUserConfig = {
   /** Description metadata for your website. Can be used in page metadata. */
   description: 'Stay hungry, stay foolish',
   /** The default favicon for your site which should be a path to an image in the `public/` directory. */
-  favicon: '/favicon/favicon.ico',
+  favicon: '/favicon/avatar.png',
   /** Specify the default language for this site. */
   locale: {
     lang: 'zh-CN',
@@ -117,7 +117,7 @@ export const integ: IntegrationUserConfig = {
       { name: 'Name', val: theme.title },
       { name: 'Desc', val: theme.description || 'Null' },
       { name: 'Link', val: 'https://scckar99.github.io/' },
-      { name: 'Avatar', val: 'https://scckar99.github.io/favicon/favicon.ico' }
+      { name: 'Avatar', val: 'https://scckar99.github.io/favicon/avatar.png' }
     ]
   },
   // Enable page search function
