@@ -41,24 +41,24 @@ html {
   --radius: 0.5rem;
 }
 .dark {
-  --background: 240 20.54% 5.2%;
+  --background: 223 26% 8.2%;
   --foreground: 0 0% 98%;
-  --card: 240 10% 3.9%;
+  --card: 223 23% 10.8%;
   --card-foreground: 0 0% 98%;
-  --popover: 240 10% 3.9%;
+  --popover: 223 23% 10.8%;
   --popover-foreground: 0 0% 98%;
-  --primary: 195 95% 85%;
+  --primary: 202 88% 78%;
   --primary-foreground: 240 3.7% 15.9%;
-  --secondary: 240 3.7% 15.9%;
+  --secondary: 223 18% 14%;
   --secondary-foreground: 0 0% 98%;
-  --muted: 240 5.9% 12%;
+  --muted: 223 17% 13.6%;
   --muted-foreground: 240 5% 74.9%;
-  --accent: 240 3.7% 15.9%;
+  --accent: 223 18% 14%;
   --accent-foreground: 0 0% 98%;
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 0 0% 98%;
-  --border: 240 3.7% 19.9%;
-  --input: 240 3.7% 15.9%;
+  --border: 223 14% 24%;
+  --input: 223 16% 18%;
   --ring: 240 4.9% 83.9%;
 }
 :root {
@@ -80,6 +80,21 @@ html:not(.dark) body {
     radial-gradient(115% 88% at 100% 0%, rgba(255, 186, 213, 0.18) 0%, rgba(255, 186, 213, 0) 54%),
     radial-gradient(95% 80% at 52% 100%, rgba(177, 221, 228, 0.16) 0%, rgba(177, 221, 228, 0) 60%),
     linear-gradient(180deg, #fbfcff 0%, #f4f7fd 56%, #eff3f9 100%);
+  background-size:
+    3px 3px,
+    auto,
+    auto,
+    auto,
+    auto;
+  background-attachment: fixed;
+}
+html.dark body {
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(205, 220, 255, 0.06) 0.6px, transparent 0.7px),
+    radial-gradient(130% 95% at 0% -12%, rgba(70, 128, 230, 0.34) 0%, rgba(70, 128, 230, 0) 54%),
+    radial-gradient(120% 95% at 100% 0%, rgba(58, 168, 189, 0.26) 0%, rgba(58, 168, 189, 0) 50%),
+    radial-gradient(100% 80% at 50% 102%, rgba(21, 82, 130, 0.22) 0%, rgba(21, 82, 130, 0) 56%),
+    linear-gradient(180deg, #0e1422 0%, #0b101a 52%, #090d15 100%);
   background-size:
     3px 3px,
     auto,

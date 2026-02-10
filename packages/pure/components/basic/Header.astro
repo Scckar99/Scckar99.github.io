@@ -162,9 +162,15 @@ import { Icon } from '../user'
     }
   }
   :global(.dark) header-component.not-top {
-    background-color: hsl(var(--muted) / 0.92);
-    -webkit-backdrop-filter: saturate(120%) blur(12px);
-    backdrop-filter: saturate(120%) blur(12px);
+    border-color: hsl(var(--border) / 0.58);
+    background-color: hsl(var(--background) / 0.62);
+    -webkit-backdrop-filter: saturate(145%) blur(14px);
+    backdrop-filter: saturate(145%) blur(14px);
+    box-shadow:
+      rgb(255, 255, 255) 0px 0px 0px 0px,
+      rgba(148, 163, 184, 0.14) 0px 0px 0px 1px,
+      rgba(2, 8, 23, 0.56) 0px 16px 36px -18px,
+      rgba(15, 23, 42, 0.4) 0px 8px 14px -10px;
   }
 
   /* header menu */
