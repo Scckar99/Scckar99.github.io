@@ -18,8 +18,8 @@ export const theme: ThemeUserConfig = {
     dateLocale: 'zh-CN',
     dateOptions: {
       day: 'numeric',
-      month: '2-digit',
-      year: '2-digit'
+      month: 'long',
+      year: 'numeric'
     }
   },
   /** Set a logo image to show in the homepage. */
