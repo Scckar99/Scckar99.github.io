@@ -18,7 +18,17 @@
       "Bash(npx pnpm add rehype-stringify remark-parse remark-rehype unified)",
       "Bash(npm install)",
       "Bash(where:*)",
-      "Bash(npx astro build)"
+      "Bash(npx astro build)",
+      "Bash(npm run build:*)",
+      "Bash(npm run dev:*)",
+      "mcp__playwright__browser_navigate",
+      "Bash(taskkill:*)",
+      "Bash(npx astro dev:*)",
+      "mcp__playwright__browser_wait_for",
+      "mcp__playwright__browser_evaluate",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_snapshot",
+      "mcp__playwright__browser_click"
     ]
   }
 }
