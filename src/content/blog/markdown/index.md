@@ -310,4 +310,4 @@ Preview:
 
 ## Embedding Astro Components
 
-See [User Components](/docs/integrations/components) and [Advanced Components](/docs/integrations/advanced) for details.
+See [User Components](https://astro-pure.js.org/docs/integrations/components) and [Advanced Components](https://astro-pure.js.org/docs/integrations/advanced) for details.

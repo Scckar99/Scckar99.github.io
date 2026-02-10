@@ -28,11 +28,11 @@ Next, we will introduce each aspect in detail.
 
 ### Configuration Files
 
-See [Configuration Files](/docs/setup/configuration) for details.
+See [Configuration Files](https://astro-pure.js.org/docs/setup/configuration) for details.
 
 #### Waline Comment System
 
-See [Waline Comment System](/docs/integrations/comment) for details.
+See [Waline Comment System](https://astro-pure.js.org/docs/integrations/comment) for details.
 
 #### Footer
 
@@ -77,4 +77,4 @@ It is recommended to find new icons on the following websites to maintain consis
 
 ## Deployment Mode
 
-See [Deployment](/docs/deployment) for details.
+See [Deployment](https://astro-pure.js.org/docs/setup/deployment) for details.
