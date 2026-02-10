@@ -43,3 +43,4 @@ bunfig.toml
 .playwright-mcp/
 .artifacts/
 nul
+.claude/
