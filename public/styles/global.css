@@ -65,6 +65,7 @@ span.katex-display {
     padding-bottom: 0.85rem;
     padding-inline: 0;
     background: none;
+    color: inherit !important;
     overflow-x: scroll;
 
     & code {
