@@ -19,24 +19,24 @@ html {
 
 /* Theme */
 :root {
-  --background: 210 33% 99%;
+  --background: 220 31% 97.4%;
   --foreground: 240 10% 3.9%;
-  --card: 0 0% 100%;
+  --card: 220 30% 99.1%;
   --card-foreground: 240 10% 3.9%;
-  --popover: 0 0% 100%;
+  --popover: 220 30% 99.1%;
   --popover-foreground: 240 10% 3.9%;
-  --primary: 200 29% 45%;
+  --primary: 204 36% 44%;
   --primary-foreground: 0 0% 92.5%;
-  --secondary: 240 4.8% 95.9%;
+  --secondary: 220 23% 95.4%;
   --secondary-foreground: 240 5.9% 10%;
-  --muted: 240 4.8% 95%;
+  --muted: 220 18% 94.7%;
   --muted-foreground: 240 3.8% 28.1%;
-  --accent: 240 4.8% 95.9%;
+  --accent: 220 23% 95.4%;
   --accent-foreground: 240 5.9% 10%;
   --destructive: 0 72.22% 50.59%;
   --destructive-foreground: 0 0% 98%;
-  --border: 240 5.9% 88%;
-  --input: 240 5.9% 90%;
+  --border: 220 14% 86%;
+  --input: 220 14% 89%;
   --ring: 240 5.9% 10%;
   --radius: 0.5rem;
 }
@@ -69,6 +69,25 @@ html.dark {
 }
 
 /* Global */
+body {
+  min-height: 100dvh;
+  background-color: hsl(var(--background) / 1);
+}
+html:not(.dark) body {
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(17, 24, 39, 0.03) 0.6px, transparent 0.7px),
+    radial-gradient(125% 92% at 0% -10%, rgba(138, 177, 255, 0.2) 0%, rgba(138, 177, 255, 0) 56%),
+    radial-gradient(115% 88% at 100% 0%, rgba(255, 186, 213, 0.18) 0%, rgba(255, 186, 213, 0) 54%),
+    radial-gradient(95% 80% at 52% 100%, rgba(177, 221, 228, 0.16) 0%, rgba(177, 221, 228, 0) 60%),
+    linear-gradient(180deg, #fbfcff 0%, #f4f7fd 56%, #eff3f9 100%);
+  background-size:
+    3px 3px,
+    auto,
+    auto,
+    auto,
+    auto;
+  background-attachment: fixed;
+}
 a {
   transition: color 0.2s ease;
   &:hover {

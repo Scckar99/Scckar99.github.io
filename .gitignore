@@ -39,3 +39,7 @@ ignore.*
 bunfig.toml
 /src/content/blog/test.*
 /test/
+### Local tooling artifacts ###
+.playwright-mcp/
+.artifacts/
+nul
