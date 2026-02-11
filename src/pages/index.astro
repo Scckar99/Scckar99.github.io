@@ -7,6 +7,7 @@ import { getBlogCollection, sortMDByDate } from 'astro-pure/server'
 import { Button, Card, Icon, Label } from 'astro-pure/user'
 import PageLayout from '@/layouts/BaseLayout.astro'
 
+import ProjectCard from '@/components/home/ProjectCard.astro'
 import Section from '@/components/home/Section.astro'
 import SkillLayout from '@/components/home/SkillLayout.astro'
 import avatar from '@/assets/avatar.png'
@@ -100,6 +101,24 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
           </Section>
         )
       }
+
+      <Section title='Projects'>
+        <div class='grid grid-cols-1 gap-3 sm:grid-cols-2'>
+          <ProjectCard
+            heading='word2md'
+            subheading='将 Word 文档一键转换为 Markdown，提升文档整理与内容迁移效率。'
+            imagePath='/src/assets/projects/word2md.png'
+            href='https://github.com/Scckar99/word2md'
+          />
+          <ProjectCard
+            heading='ImageFlowKit'
+            subheading='一套图片批量处理工具，支持方向矫正、白边裁剪与内容提取。'
+            imagePath='/src/assets/projects/ImageFlowKit.png'
+            href='https://github.com/Scckar99/ImageFlowKit'
+          />
+        </div>
+        <Button title='All projects' class='w-fit self-end' href='/projects' variant='ahead' />
+      </Section>
 
       <Section title='Education'>
         <Card
