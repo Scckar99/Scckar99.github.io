@@ -33,6 +33,7 @@ const typographyConfig = {
     },
     // Blockquote
     blockquote: {
+      color: fg,
       position: 'relative',
       overflow: 'hidden',
       'border-width': '1px',
@@ -95,6 +96,7 @@ const typographyConfig = {
     // Inline code
     ...(typographyCustom.inlineCodeBlockStyle === 'modern' && {
       ':not(pre) > code': {
+        color: fg,
         padding: '0.3em 0.5em',
         border: '1px solid hsl(var(--border) / 1)',
         'border-radius': 'var(--radius)',
