@@ -3,6 +3,8 @@
   "type": "module",
   "version": "4.0.8",
   "scripts": {
+    "link:astro-pure": "node scripts/link-astro-pure.mjs",
+    "predev": "node scripts/link-astro-pure.mjs",
     "dev": "astro dev",
     "dev:check": "astro check --watch & astro dev",
     "build": "astro-pure check && astro check && astro build",
