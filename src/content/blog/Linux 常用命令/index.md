@@ -1,486 +1,506 @@
 ---
 title: Linux 常用操作命令大全
 publishDate: 2025-10-17
-description: 'Linux 系统的基础知识、命令行操作、目录与文件管理、权限设置、打包解压等核心技能，涵盖系统关机重启、用户切换、目录文件操作、权限修改、打包解压等实用命令，适用于初学者和系统管理员。'
+description: '一篇覆盖 Linux 常用命令的速查文档，包含系统操作、目录文件管理、权限控制和打包解压，适合入门与日常运维。'
 tags:
   - Linux
+  - Shell
+  - 运维入门
 heroImage: { src: './thumbnail.jpg', color: '#64574D' }
-language: 'Chinese'
+language: '中文'
 ---
 
 ## 一、基础知识
 
-### 1.1 Linux系统的文件结构
+### 1.1 Linux 系统常见目录结构
 
-```
+```text
 /bin        二进制文件，系统常规命令
-/boot       系统启动分区，系统启动时读取的文件
+/boot       系统启动相关文件
 /dev        设备文件
-/etc        大多数配置文件
-/home       普通用户的家目录
-/lib        32位函数库
-/lib64      64位库
-/media      手动临时挂载点
-/mnt        手动临时挂载点
+/etc        系统与服务配置文件
+/home       普通用户家目录
+/lib        32 位函数库
+/lib64      64 位函数库
+/media      可移动设备挂载点
+/mnt        临时挂载点
 /opt        第三方软件安装位置
-/proc       进程信息及硬件信息
-/root       临时设备的默认挂载点
+/proc       进程信息及硬件信息（虚拟文件系统）
+/root       root 用户家目录
 /sbin       系统管理命令
-/srv        数据
-/var        数据
-/sys        内核相关信息
+/srv        服务相关数据
+/var        经常变化的数据（日志、缓存等）
+/sys        内核与设备相关信息（虚拟文件系统）
 /tmp        临时文件
-/usr        用户相关设定
+/usr        用户程序与共享资源
 ```
 
-### 1.2 Linux系统命令行的含义
+### 1.2 Linux 命令行提示符含义
 
+```bash
+root@app00:~#
 ```
-示例：root@app00:~#
-root    //用户名，root为超级用户
-@       //分隔符
-app00   //主机名称
-~       //当前所在目录，默认用户目录为~，会随着目录切换而变化，例如：（root@app00:/bin# ，当前位置在bin目录下）
-#       //表示当前用户是超级用户，普通用户为$，例如：（"yao@app00:/root$" ，表示使用用户"yao"访问/root文件夹）
-```
+
+- `root`：用户名（`root` 为超级用户）
+- `@`：分隔符
+- `app00`：主机名
+- `~`：当前目录（用户家目录）
+- `#`：超级用户提示符；普通用户通常是 `$`
 
 ### 1.3 命令的组成
 
-```
-示例：命令 参数名 参数值
+```text
+命令 [选项] [参数]
 ```
 
 ## 二、基础操作
 
 ### 2.1 关闭系统
 
-```
-(1)立刻关机
-  shutdown -h now 或者 poweroff
-(2)两分钟后关机
-  shutdown -h 2
+```bash
+# 立刻关机
+shutdown -h now
+# 或
+poweroff
+
+# 两分钟后关机
+shutdown -h 2
 ```
 
-### 2.2 关闭重启
+### 2.2 重启系统
 
-```
-(1)立刻重启
-  shutdown -r now 或者 reboot
-(2)两分钟后重启
-  shutdown -r 2
+```bash
+# 立刻重启
+shutdown -r now
+# 或
+reboot
+
+# 两分钟后重启
+shutdown -r 2
 ```
 
-### 2.3 帮助命令（help）
+### 2.3 帮助命令
 
-```
-ifconfig  --help     //查看 ifconfig 命令的用法
+```bash
+ifconfig --help   # 查看 ifconfig 命令用法
 ```
 
 ### 2.4 命令说明书（man）
 
-```
-man shutdown         //打开命令说明后，可按"q"键退出
+```bash
+man shutdown       # 查看 shutdown 手册，按 q 退出
 ```
 
 ### 2.5 切换用户（su）
 
-```
-su yao               //切换为用户"yao",输入后回车需要输入该用户的密码
-exit                 //退出当前用户
+```bash
+su - yao            # 切换为用户 yao（会加载该用户环境）
+exit                # 退出当前用户会话
 ```
 
 ## 三、目录操作
 
 ### 3.1 切换目录（cd）
 
-```
-  cd /                 //切换到根目录
-  cd /bin              //切换到根目录下的bin目录
-  cd ../               //切换到上一级目录 或者使用命令：cd ..
-  cd ~                 //切换到home目录
-  cd -                 //切换到上次访问的目录
-  cd xx(文件夹名)      //切换到本目录下的名为xx的文件目录，如果目录不存在报错
-  cd /xxx/xx/x         //可以输入完整的路径，直接切换到目标目录，输入过程中可以使用tab键快速补全
+```bash
+cd /                  # 切换到根目录
+cd /bin               # 切换到 /bin 目录
+cd ..                 # 切换到上一级目录
+cd ~                  # 切换到用户家目录
+cd -                  # 切换到上一次访问目录
+cd xx                 # 切换到当前目录下的 xx 目录
+cd /xxx/xx/x          # 使用绝对路径切换目录（可用 Tab 补全）
 ```
 
 ### 3.2 查看目录（ls）
 
 ```bash
-  ls                   //查看当前目录下的所有目录和文件
-  ls -a                //查看当前目录下的所有目录和文件（包括隐藏的文件）
-  ls -l                //列表查看当前目录下的所有目录和文件（列表查看，显示更多信息），与命令"ll"效果一样
-  ls /bin              //查看指定目录下的所有目录和文件
+ls                    # 查看当前目录文件
+ls -a                 # 显示全部文件（含隐藏文件）
+ls -l                 # 详细列表显示（常见别名 ll）
+ls /bin               # 查看指定目录内容
 ```
 
 ### 3.3 创建目录（mkdir）
 
-```
-  mkdir tools          //在当前目录下创建一个名为tools的目录
-  mkdir /bin/tools     //在指定目录下创建一个名为tools的目录
-```
-
-### 3.3 删除目录与文件（rm）
-
-```
-  rm 文件名              //删除当前目录下的文件
-  rm -f 文件名           //删除当前目录的的文件（不询问）
-  rm -r 文件夹名         //递归删除当前目录下此名的目录
-  rm -rf 文件夹名        //递归删除当前目录下此名的目录（不询问）
-  rm -rf *              //将当前目录下的所有目录和文件全部删除
-  rm -rf /*             //将根目录下的所有文件全部删除【慎用！相当于格式化系统】
+```bash
+mkdir tools           # 在当前目录创建 tools
+mkdir /bin/tools      # 在指定目录创建 tools
 ```
 
-### 3.4 修改目录（mv）
+### 3.4 删除目录与文件（rm）
 
-```
-  mv 当前目录名 新目录名        //修改目录名，同样适用与文件操作
-  mv /usr/tmp/tool /opt       //将/usr/tmp目录下的tool目录剪切到 /opt目录下面
-  mv -r /usr/tmp/tool /opt    //递归剪切目录中所有文件和文件夹
-```
-
-### 3.5 拷贝目录（cp）
-
-```
-  cp /usr/tmp/tool /opt       //将/usr/tmp目录下的tool目录复制到 /opt目录下面
-  cp -r /usr/tmp/tool /opt    //递归剪复制目录中所有文件和文件夹
+```bash
+rm 文件名             # 删除当前目录文件
+rm -f 文件名          # 强制删除文件（不询问）
+rm -r 文件夹名        # 递归删除目录
+rm -rf 文件夹名       # 强制递归删除目录（危险）
+rm -rf *              # 删除当前目录全部内容（危险）
+rm -rf /*             # 删除根目录全部内容（极危险，严禁误用）
 ```
 
-### 3.6 搜索目录（find）
+### 3.5 移动/重命名（mv）
 
-```
-  find /bin -name 'a*'        //查找/bin目录下的所有以a开头的文件或者目录
+```bash
+mv 旧名称 新名称               # 重命名（文件和目录都适用）
+mv /usr/tmp/tool /opt          # 将 tool 移动到 /opt
 ```
 
-### 3.7 查看当前目录（pwd）
+### 3.6 拷贝目录/文件（cp）
 
+```bash
+cp /usr/tmp/file.txt /opt           # 复制文件
+cp -r /usr/tmp/tool /opt            # 递归复制目录
 ```
-  pwd                         //显示当前位置路径
+
+### 3.7 搜索文件（find）
+
+```bash
+find /bin -name 'a*'          # 查找 /bin 下以 a 开头的文件或目录
+```
+
+### 3.8 查看当前目录（pwd）
+
+```bash
+pwd                           # 显示当前路径
 ```
 
 ## 四、文件操作
 
 ### 4.1 新增文件（touch）
 
-```
-   touch  a.txt         //在当前目录下创建名为a的txt文件（文件不存在），如果文件存在，将文件时间属性修改为当前系统时间
+```bash
+touch a.txt                    # 文件不存在则创建；存在则更新时间戳
 ```
 
 ### 4.2 删除文件（rm）
 
-```
-  rm 文件名              //删除当前目录下的文件
-  rm -f 文件名           //删除当前目录的的文件（不询问）
+```bash
+rm 文件名                      # 删除文件
+rm -f 文件名                   # 强制删除（不询问）
 ```
 
 ### 4.3 编辑文件（vi、vim）
 
+```bash
+vi 文件名
 ```
-  vi 文件名              //打开需要编辑的文件
-  --进入后，操作界面有三种模式：命令模式（command mode）、插入模式（Insert mode）和底行模式（last line mode）
-  命令模式
-  -刚进入文件就是命令模式，通过方向键控制光标位置，
-  -使用命令"dd"删除当前整行
-  -使用命令"/字段"进行查找
-  -按"i"在光标所在字符前开始插入
-  -按"a"在光标所在字符后开始插入
-  -按"o"在光标所在行的下面另起一新行插入
-  -按"："进入底行模式
-  插入模式
-  -此时可以对文件内容进行编辑，左下角会显示 "-- 插入 --""
-  -按"ESC"进入底行模式
-  底行模式
-  -退出编辑：      :q
-  -强制退出：      :q!
-  -保存并退出：    :wq
-  ## 操作步骤示例 ##
-  1.保存文件：按"ESC" -> 输入":" -> 输入"wq",回车     //保存并退出编辑
-  2.取消操作：按"ESC" -> 输入":" -> 输入"q!",回车     //撤销本次修改并退出编辑
-  ## 补充 ##
-  vim +10 filename.txt                   //打开文件并跳到第10行
-  vim -R /etc/passwd                     //以只读模式打开文件
+
+进入 `vi/vim` 后常见三种模式：
+
+- 命令模式（默认进入）
+  - `dd`：删除当前行
+  - `/关键词`：搜索
+  - `i`：在光标前插入
+  - `a`：在光标后插入
+  - `o`：在当前行下方新起一行
+  - `:`：进入底行模式
+- 插入模式
+  - 可编辑文本，按 `ESC` 返回命令模式
+- 底行模式（先按 `:` 进入）
+  - `:q` 退出
+  - `:q!` 强制退出不保存
+  - `:wq` 保存并退出
+
+补充：
+
+```bash
+vim +10 filename.txt          # 打开文件并跳到第 10 行
+vim -R /etc/passwd            # 只读模式打开文件
 ```
 
 ### 4.4 查看文件
 
-```
-  cat a.txt          //查看文件最后一屏内容
-  less a.txt         //PgUp向上翻页，PgDn向下翻页，"q"退出查看
-  more a.txt         //显示百分比，回车查看下一行，空格查看下一页，"q"退出查看
-  tail -100 a.txt    //查看文件的后100行，"Ctrl+C"退出查看
+```bash
+cat a.txt                # 查看文件全部内容
+less a.txt               # 分页查看，q 退出
+more a.txt               # 分页查看（旧工具）
+tail -100 a.txt          # 查看文件最后 100 行
+tail -f a.txt            # 实时追踪文件新增内容
 ```
 
 ## 五、文件权限
 
 ### 5.1 权限说明
 
-```
-  文件权限简介：'r' 代表可读（4），'w' 代表可写（2），'x' 代表执行权限（1），括号内代表"8421法"
-  ##文件权限信息示例：-rwxrw-r--
-  -第一位：'-'就代表是文件，'d'代表是文件夹
-  -第一组三位：拥有者的权限
-  -第二组三位：拥有者所在的组，组员的权限
-  -第三组三位：代表的是其他用户的权限
+```text
+r = 可读（4）
+w = 可写（2）
+x = 可执行（1）
 ```
 
-### 5.2 文件权限
+示例：`-rwxrw-r--`
 
-```
-  普通授权    chmod +x a.txt
-  8421法     chmod 777 a.txt     //1+2+4=7，"7"说明授予所有权限
+- 第一位：`-` 表示普通文件，`d` 表示目录
+- 第一组三位：文件拥有者权限
+- 第二组三位：所属组权限
+- 第三组三位：其他用户权限
+
+### 5.2 文件权限设置（chmod）
+
+```bash
+chmod +x a.txt         # 增加执行权限
+chmod 777 a.txt        # 8421 法：7=4+2+1（读写执行）
 ```
 
 ## 六、打包与解压
 
-### 6.1 说明
+### 6.1 常见压缩格式
 
-```
-  .zip、.rar        //windows系统中压缩文件的扩展名
-  .tar              //Linux中打包文件的扩展名
-  .gz               //Linux中压缩文件的扩展名
-  .tar.gz           //Linux中打包并压缩文件的扩展名
+```text
+.zip、.rar      Windows 常见压缩格式
+.tar            Linux 打包格式（仅打包）
+.gz             Linux 压缩格式（gzip）
+.tar.gz         Linux 打包并压缩格式
 ```
 
 ### 6.2 打包文件
 
-```
-  tar -zcvf 打包压缩后的文件名 要打包的文件
-  参数说明：z：调用gzip压缩命令进行压缩; c：打包文件; v：显示运行过程; f：指定文件名;
-  示例：
-  tar -zcvf a.tar file1 file2,...      //多个文件压缩打包
+```bash
+tar -zcvf 打包压缩后的文件名.tar.gz 要打包的文件
+
+# 参数说明
+# z: 调用 gzip 压缩
+# c: 创建归档文件
+# v: 显示过程
+# f: 指定输出文件名
+
+tar -zcvf a.tar.gz file1 file2         # 多文件打包压缩
 ```
 
 ### 6.3 解压文件
 
-```
-  tar -zxvf a.tar                      //解包至当前目录
-  tar -zxvf a.tar -C /usr------        //指定解压的位置
-  unzip test.zip             //解压*.zip文件
-  unzip -l test.zip          //查看*.zip文件的内容
+```bash
+tar -zxvf a.tar.gz                    # 解压到当前目录
+tar -zxvf a.tar.gz -C /usr/local      # 解压到指定目录
+unzip test.zip                        # 解压 zip 文件
+unzip -l test.zip                     # 查看 zip 内容
 ```
 
 ## 七、其他常用命令
 
 ### 7.1 find
 
-```
-  find . -name "*.c"     //将目前目录及其子目录下所有延伸档名是 c 的文件列出来
-  find . -type f         //将目前目录其其下子目录中所有一般文件列出
-  find . -ctime -20      //将目前目录及其子目录下所有最近 20 天内更新过的文件列出
-  find /var/log -type f -mtime +7 -ok rm {} \;     //查找/var/log目录中更改时间在7日以前的普通文件，并在删除之前询问它们
-  find . -type f -perm 644 -exec ls -l {} \;       //查找前目录中文件属主具有读、写权限，并且文件所属组的用户和其他用户具有读权限的文件
-  find / -type f -size 0 -exec ls -l {} \;         //为了查找系统中所有文件长度为0的普通文件，并列出它们的完整路径
+```bash
+find . -name "*.c"                              # 在当前目录及子目录查找 .c 文件
+find . -type f                                  # 查找普通文件
+find . -ctime -20                               # 查找最近 20 天内变更过的文件
+find /var/log -type f -mtime +7 -ok rm {} \;   # 删除 7 天前日志（删除前确认）
+find . -type f -perm 644 -exec ls -l {} \;     # 查找权限为 644 的文件
+find / -type f -size 0 -exec ls -l {} \;       # 查找空文件并列出
 ```
 
 ### 7.2 whereis
 
-```
-  whereis ls             //将和ls文件相关的文件都查找出来
+```bash
+whereis ls               # 查找 ls 相关文件（可执行文件、源码、man）
 ```
 
 ### 7.3 which
 
-```
-  说明：which指令会在环境变量$PATH设置的目录里查找符合条件的文件。
-  which bash             //查看指令"bash"的绝对路径
+```bash
+which bash               # 在 PATH 中查找 bash 的可执行文件路径
 ```
 
 ### 7.4 sudo
 
-```
-  说明：sudo命令以系统管理者的身份执行指令，也就是说，经由 sudo 所执行的指令就好像是 root 亲自执行。需要输入自己账户密码。
-  使用权限：在 /etc/sudoers 中有出现的使用者
-  sudo -l                              //列出目前的权限
-  $ sudo -u yao vi ~www/index.html    //以 yao 用户身份编辑  home 目录下www目录中的 index.html 文件
+```bash
+sudo -l                                # 列出当前账户可用 sudo 权限
+sudo -u yao vi /home/www/index.html    # 以 yao 用户身份编辑文件
 ```
 
 ### 7.5 grep
 
-```
-  grep -i "the" demo_file              //在文件中查找字符串(不区分大小写)
-  grep -A 3 -i "example" demo_text     //输出成功匹配的行，以及该行之后的三行
-  grep -r "ramesh" *                   //在一个文件夹中递归查询包含指定字符串的文件
+```bash
+grep -i "the" demo_file                # 忽略大小写查找
+grep -A 3 -i "example" demo_text       # 输出匹配行及其后 3 行
+grep -r "ramesh" *                     # 递归查找包含指定字符串的文件
 ```
 
 ### 7.6 service
 
-```
-  说明：service命令用于运行System V init脚本，这些脚本一般位于/etc/init.d文件下，这个命令可以直接运行这个文件夹里面的脚本，而不用加上路径
-  service ssh status      //查看服务状态
-  service --status-all    //查看所有服务状态
-  service ssh restart     //重启服务
+```bash
+service ssh status        # 查看服务状态
+service --status-all      # 查看所有服务状态
+service ssh restart       # 重启服务
 ```
 
 ### 7.7 free
 
-```
-  说明：这个命令用于显示系统当前内存的使用情况，包括已用内存、可用内存和交换内存的情况
-  free -g            //以G为单位输出内存的使用量，-g为GB，-m为MB，-k为KB，-b为字节
-  free -t            //查看所有内存的汇总
+```bash
+free -g              # 以 GB 查看内存
+free -m              # 以 MB 查看内存
+free -t              # 查看内存汇总
 ```
 
 ### 7.8 top
 
-```
-  top               //显示当前系统中占用资源最多的一些进程, shift+m 按照内存大小查看
+```bash
+top                  # 查看实时进程资源占用（Shift + M 按内存排序）
 ```
 
 ### 7.9 df
 
-```
-  说明：显示文件系统的磁盘使用情况
-  df -h            //一种易看的显示
+```bash
+df -h                # 以可读方式显示磁盘使用情况
 ```
 
 ### 7.10 mount
 
 ```bash
-  mount /dev/sdb1 /u01              //挂载一个文件系统，需要先创建一个目录，然后将这个文件系统挂载到这个目录上
-  dev/sdb1 /u01 ext2 defaults 0 2   //添加到fstab中进行自动挂载，这样任何时候系统重启的时候，文件系统都会被加载
-
-12
+mount /dev/sdb1 /u01                # 挂载文件系统到 /u01（目录需提前创建）
+# /etc/fstab 示例（开机自动挂载）
+/dev/sdb1 /u01 ext4 defaults 0 2
 ```
 
 ### 7.11 uname
 
-```
-  说明：uname可以显示一些重要的系统信息，例如内核名称、主机名、内核版本号、处理器类型之类的信息
-  uname -a
+```bash
+uname -a              # 查看内核、主机名、系统架构等信息
 ```
 
 ### 7.12 yum
 
-```
-  说明：安装插件命令
-  yum install httpd      //使用yum安装apache
-  yum update httpd       //更新apache
-  yum remove httpd       //卸载/删除apache
+```bash
+yum install httpd       # 安装 Apache
+yum update httpd        # 更新 Apache
+yum remove httpd        # 卸载 Apache
 ```
 
 ### 7.13 rpm
 
-```
-  说明：插件安装命令
-  rpm -ivh httpd-2.2.3-22.0.1.el5.i386.rpm      //使用rpm文件安装apache
-  rpm -uvh httpd-2.2.3-22.0.1.el5.i386.rpm      //使用rpm更新apache
-  rpm -ev httpd                                 //卸载/删除apache
+```bash
+rpm -ivh httpd-2.2.3-22.0.1.el5.i386.rpm   # 安装 rpm 包
+rpm -uvh httpd-2.2.3-22.0.1.el5.i386.rpm   # 更新 rpm 包
+rpm -ev httpd                               # 卸载 rpm 包
 ```
 
 ### 7.14 date
 
-```
-  date -s "01/31/2010 23:59:53"   ///设置系统时间
+```bash
+date -s "01/31/2010 23:59:53"     # 设置系统时间
 ```
 
 ### 7.15 wget
 
-```
-  说明：使用wget从网上下载软件、音乐、视频
-  示例：wget http://prdownloads.sourceforge.net/sourceforge/nagios/nagios-3.2.1.tar.gz
-  //下载文件并以指定的文件名保存文件
-  wget -O nagios.tar.gz http://prdownloads.sourceforge.net/sourceforge/nagios/nagios-3.2.1.tar.gz
+```bash
+wget http://prdownloads.sourceforge.net/sourceforge/nagios/nagios-3.2.1.tar.gz
+wget -O nagios.tar.gz http://prdownloads.sourceforge.net/sourceforge/nagios/nagios-3.2.1.tar.gz
 ```
 
 ### 7.16 ftp
 
-```
-   ftp IP/hostname    //访问ftp服务器
-   mls *.html -       //显示远程主机上文件列表
+```bash
+ftp IP/hostname       # 访问 FTP 服务器
+mls *.html -          # 显示远程主机文件列表
 ```
 
 ### 7.17 scp
 
-```
-	scp /opt/data.txt  192.168.1.101:/opt/    //将本地opt目录下的data文件发送到192.168.1.101服务器的opt目录下
+```bash
+scp /opt/data.txt 192.168.1.101:/opt/    # 复制本地文件到远程服务器
 ```
 
 ## 八、系统管理
 
 ### 8.1 防火墙操作
 
-```
-  service iptables status      //查看iptables服务的状态
-  service iptables start       //开启iptables服务
-  service iptables stop        //停止iptables服务
-  service iptables restart     //重启iptables服务
-  chkconfig iptables off       //关闭iptables服务的开机自启动
-  chkconfig iptables on        //开启iptables服务的开机自启动
-  ##centos7 防火墙操作
-  systemctl status firewalld.service     //查看防火墙状态
-  systemctl stop firewalld.service       //关闭运行的防火墙
-  systemctl disable firewalld.service    //永久禁止防火墙服务
+```bash
+# CentOS 6（iptables）
+service iptables status
+service iptables start
+service iptables stop
+service iptables restart
+chkconfig iptables off
+chkconfig iptables on
+
+# CentOS 7+（firewalld）
+systemctl status firewalld
+systemctl stop firewalld
+systemctl disable firewalld
 ```
 
 ### 8.2 修改主机名（CentOS 7）
 
-```
-  hostnamectl set-hostname 主机名
+```bash
+hostnamectl set-hostname 主机名
 ```
 
 ### 8.3 查看网络
 
-```
-  ifconfig
+```bash
+ifconfig
+# 或
+ip addr
 ```
 
 ### 8.4 修改IP
 
+```text
+配置文件示例：/etc/sysconfig/network-scripts/ifcfg-ens33
 ```
-  修改网络配置文件，文件地址：/etc/sysconfig/network-scripts/ifcfg-eth0
-  ------------------------------------------------
-  主要修改以下配置：
-  TYPE=Ethernet               //网络类型
-  BOOTPROTO=static            //静态IP
-  DEVICE=ens00                //网卡名
-  IPADDR=192.168.1.100        //设置的IP
-  NETMASK=255.255.255.0       //子网掩码
-  GATEWAY=192.168.1.1         //网关
-  DNS1=192.168.1.1            //DNS
-  DNS2=8.8.8.8                //备用DNS
-  ONBOOT=yes                  //系统启动时启动此设置
-  -------------------------------------------------
-  修改保存以后使用命令重启网卡：service network restart
+
+```ini
+TYPE=Ethernet
+BOOTPROTO=static
+DEVICE=ens33
+IPADDR=192.168.1.100
+NETMASK=255.255.255.0
+GATEWAY=192.168.1.1
+DNS1=192.168.1.1
+DNS2=8.8.8.8
+ONBOOT=yes
+```
+
+```bash
+service network restart        # 或 systemctl restart network
 ```
 
 ### 8.5 配置映射
 
+```bash
+vi /etc/hosts
 ```
-  修改文件： vi /etc/hosts
-  在文件最后添加映射地址，示例如下：
-   192.168.1.101  node1
-   192.168.1.102  node2
-   192.168.1.103  node3
-  配置好以后保存退出，输入命令：ping node1 ，可见实际 ping 的是 192.168.1.101。
+
+```text
+192.168.1.101 node1
+192.168.1.102 node2
+192.168.1.103 node3
+```
+
+```bash
+ping node1
 ```
 
 ### 8.6 查看进程
 
-```
-  ps -ef         //查看所有正在运行的进程
+```bash
+ps -ef            # 查看所有进程
 ```
 
 ### 8.7 结束进程
 
-```
-  kill pid       //杀死该pid的进程
-  kill -9 pid    //强制杀死该进程
+```bash
+kill PID          # 结束进程
+kill -9 PID       # 强制结束进程
 ```
 
-### 8.8 查看链接
+### 8.8 查看连接
 
-```
-  ping IP        //查看与此IP地址的连接情况
-  netstat -an    //查看当前系统端口
-  netstat -an | grep 8080     //查看指定端口
+```bash
+ping IP                    # 查看与目标 IP 的连通性
+netstat -an                # 查看系统端口连接信息
+netstat -an | grep 8080    # 查看指定端口
 ```
 
 ### 8.9 快速清屏
 
-```
-  ctrl+l        //清屏，往上翻可以查看历史操作
+```text
+Ctrl + L        # 清屏（滚动仍可查看历史）
 ```
 
 ### 8.10 远程主机
 
-```
-  ssh IP       //远程主机，需要输入用户名和密码
+```bash
+ssh 用户名@IP   # 远程登录主机
 ```
