@@ -19,10 +19,10 @@ export const FriendLinksSchema = () =>
     .default({
       logbook: [],
       applyTip: [
-        { name: 'Name', val: 'Astro Pure' },
-        { name: 'Desc', val: 'Null' },
-        { name: 'Link', val: 'https://astro-pure.js.org/' },
-        { name: 'Avatar', val: 'https://astro-pure.js.org/favicon/favicon.ico' }
+        { name: 'Name', val: "Scckar's Blog" },
+        { name: 'Desc', val: 'Stay hungry, stay foolish' },
+        { name: 'Link', val: 'https://scckar99.github.io/' },
+        { name: 'Avatar', val: 'https://scckar99.github.io/favicon/avatar.png' }
       ]
     })
     .describe('Friend links for your website.')

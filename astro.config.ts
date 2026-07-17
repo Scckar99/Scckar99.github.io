@@ -25,7 +25,7 @@ import config from './src/site.config.ts'
 export default defineConfig({
   // Top-Level Options
   site: 'https://scckar99.github.io',
-  // Deploy to a sub path; See https://astro-pure.js.org/docs/setup/deployment#platform-with-base-path
+  // Deploy to a sub path when the site is not hosted at the domain root.
   // base: '/astro-pure/',
   trailingSlash: 'never',
 
@@ -54,7 +54,7 @@ export default defineConfig({
     // astro-pure will automatically add sitemap, mdx & unocss
     // sitemap(),
     // mdx(),
-    AstroPureIntegration(config),
+    AstroPureIntegration(config)
     // @playform/compress disabled: clean-css@5.3.3 crashes during CSS tokenization
     // Astro/Vite already handles minification during build
     // (await import('@playform/compress')).default({

@@ -1,11 +1,5 @@
-blank_issues_enabled: false
+blank_issues_enabled: true
 contact_links:
-  - name: 👾 Chat
-    url: https://t.me/astro_pure
-    about: Chat with the community on Telegram
-  - name: 📘 Documentation
-    url: https://astro-pure.js.org/docs
-    about: Checkout the documentation for more information
-  - name: 💁 Discussion
-    url: https://github.com/cworld1/astro-theme-pure/discussions
-    about: 'This issue tracker is not for support questions. Leave a comment on the discussion board if you need help.'
+  - name: Repository homepage
+    url: https://github.com/Scckar99/Scckar99.github.io
+    about: View the source code and project documentation.

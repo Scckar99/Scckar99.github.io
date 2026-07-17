@@ -1,17 +1,17 @@
 {
   "name": "astro-pure",
   "version": "1.3.4",
-  "description": "A simple, clean but powerful blog theme build by astro.",
+  "description": "Local Astro integration package for Scckar's Blog.",
   "type": "module",
-  "author": "CWorld",
+  "author": "Scckar",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cworld1/astro-theme-pure.git",
+    "url": "git+https://github.com/Scckar99/Scckar99.github.io.git",
     "directory": "packages/pure"
   },
-  "bugs": "https://github.com/cworld1/astro-theme-pure",
-  "homepage": "https://astro-pure.js.org/",
+  "bugs": "https://github.com/Scckar99/Scckar99.github.io/issues",
+  "homepage": "https://scckar99.github.io/",
   "keywords": [
     "Astro",
     "Theme",

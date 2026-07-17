@@ -34,14 +34,7 @@ export const theme: ThemeUserConfig = {
   npmCDN: 'https://cdn.jsdelivr.net/npm',
 
   // Still in test
-  head: [
-    /* Telegram channel */
-    // {
-    //   tag: 'meta',
-    //   attrs: { name: 'telegram:channel', content: '@cworld0_cn' },
-    //   content: ''
-    // }
-  ],
+  head: [],
   customCss: [],
 
   /** Configure the header of your site. */
@@ -78,7 +71,7 @@ export const theme: ThemeUserConfig = {
         pos: 2 // position set to 2 will be appended to copyright line
       }
     ],
-    /** Enable displaying a “Astro & Pure theme powered” link in your site’s footer. */
+    /** Enable displaying the Astro credit link in the site footer. */
     credits: true,
     /** Optional details about the social media accounts for this site. */
     social: { github: 'https://github.com/Scckar99' }
@@ -102,7 +95,6 @@ export const theme: ThemeUserConfig = {
 
 export const integ: IntegrationUserConfig = {
   // Links management
-  // See: https://astro-pure.js.org/docs/integrations/links
   links: {
     // Friend logbook
     logbook: [
@@ -123,7 +115,6 @@ export const integ: IntegrationUserConfig = {
   // Enable page search function
   pagefind: true,
   // Add a random quote to the footer (default on homepage footer)
-  // See: https://astro-pure.js.org/docs/integrations/advanced#web-content-render
   quote: {
     // https://developer.hitokoto.cn/sentence/
     server: 'https://v1.hitokoto.cn/?c=i',
@@ -139,7 +130,6 @@ export const integ: IntegrationUserConfig = {
     inlineCodeBlockStyle: 'modern'
   },
   // A lightbox library that can add zoom effect
-  // See: https://astro-pure.js.org/docs/integrations/others#medium-zoom
   mediumZoom: {
     enable: true, // disable it will not load the whole library
     selector: '.prose .zoomable',
@@ -150,8 +140,7 @@ export const integ: IntegrationUserConfig = {
   // Comment system
   waline: {
     enable: true,
-    // Server service link
-    server: 'https://astro-theme-pure-waline.arthals.ink/',
+    server: 'https://scckar-waline.vercel.app/',
     // Refer https://waline.js.org/en/guide/features/emoji.html
     emoji: ['bmoji', 'weibo'],
     // Refer https://waline.js.org/en/reference/client/props.html

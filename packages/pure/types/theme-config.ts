@@ -21,7 +21,7 @@ export const ThemeConfigSchema = () =>
     /** Description metadata for your website. Can be used in page metadata. */
     description: z
       .string()
-      .default('Built with Astro-Pure')
+      .default("Scckar's personal blog")
       .describe('Description metadata for your website. Can be used in page metadata.'),
 
     /** The default favicon for your site which should be a path to an image in the `public/` directory. */
@@ -138,11 +138,11 @@ export const ThemeConfigSchema = () =>
         .optional()
         .describe('The footer links for your site.'),
 
-      /** Enable displaying a “Astro & Pure theme powered” link in your site’s footer. */
+      /** Enable displaying the Astro credit link in the site footer. */
       credits: z
         .boolean()
         .default(true)
-        .describe('Enable displaying a “Built with Starlight” link in your site’s footer.'),
+        .describe('Enable displaying the Astro credit link in the site footer.'),
 
       /**
        * Optional details about the social media accounts for this site.

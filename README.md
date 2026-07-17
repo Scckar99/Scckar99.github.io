@@ -2,7 +2,7 @@
 
 [![Deploy to GitHub Pages](https://github.com/Scckar99/Scckar99.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/Scckar99/Scckar99.github.io/actions/workflows/deploy.yml)
 
-一个基于 [Astro](https://astro.build/) 与 [Astro Theme Pure](https://github.com/cworld1/astro-theme-pure) 的个人博客项目。
+一个基于 [Astro](https://astro.build/) 持续改造的个人博客项目。
 
 - 在线访问：<https://scckar99.github.io/>
 - 部署方式：GitHub Actions + GitHub Pages
@@ -131,5 +131,4 @@ comment: true
 ## 致谢
 
 - [Astro](https://astro.build/)
-- [Astro Theme Pure](https://github.com/cworld1/astro-theme-pure)
 - [Waline](https://waline.js.org/)

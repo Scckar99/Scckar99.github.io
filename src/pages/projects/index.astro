@@ -1,19 +1,16 @@
 ---
 import { Image } from 'astro:assets'
 
-import { Button, Collapse, Icon } from 'astro-pure/user'
 import PageLayout from '@/layouts/CommonPage.astro'
 import ProjectSection from '@/components/projects/ProjectSection.astro'
 import Sponsors from '@/components/projects/Sponsors.astro'
 import Sponsorship from '@/components/projects/Sponsorship.astro'
 import alipay from '@/assets/alipay-qrcode.jpg'
-import KeyIcon from '@/assets/icons/key.svg'
 import wechat from '@/assets/wechat-qrcode.jpg'
 
 const headings = [
   { depth: 2, slug: 'theme', text: "Blog's theme" },
   { depth: 2, slug: 'programs', text: 'Programs' },
-  { depth: 2, slug: 'learnings', text: 'Learnings' },
   { depth: 2, slug: 'others', text: 'Others' },
   { depth: 2, slug: 'sponsorship', text: 'Sponsorship' }
 ]
@@ -38,15 +35,8 @@ const headings = [
     projects={[
       {
         name: "🪪 Scckar's Blog",
-        description: '基于 Astro-theme-pure 的个人博客网站搭建',
-        links: [
-          { type: 'github', href: 'https://github.com/Scckar99/Scckar99.github.io' },
-          { type: 'site', href: 'https://github.com/cworld1/astro-theme-pure' },
-          {
-            type: 'doc',
-            href: 'https://github.com/cworld1/astro-theme-pure/blob/main/src/content/blog/customize/index.md'
-          }
-        ]
+        description: '基于 Astro 构建并持续改造的个人博客网站',
+        links: [{ type: 'github', href: 'https://github.com/Scckar99/Scckar99.github.io' }]
       }
     ]}
   />
@@ -56,8 +46,7 @@ const headings = [
     projects={[
       {
         name: '🖼️ ImageFlowKit',
-        description:
-          '一套完整的图片批量处理工具，包含方向矫正、白边裁剪、内容提取等功能。',
+        description: '一套完整的图片批量处理工具，包含方向矫正、白边裁剪、内容提取等功能。',
         links: [
           { type: 'github', href: 'https://github.com/Scckar99/ImageFlowKit' },
           {
@@ -76,51 +65,9 @@ const headings = [
             href: 'https://github.com/Scckar99/word2md/blob/main/README.md'
           }
         ]
-      },
-    ]}
-  />
-  <Collapse title='Some old projects'>
-    <ProjectSection
-      projects={[
-        {
-          name: 'Search Switcher',
-          description: 'Add links to each other in search engines',
-          links: [{ type: 'github', href: 'https://github.com/cworld1/search-switcher' }]
-        },
-        {
-          name: 'Pure Baidu',
-          description: 'Baidu search page beautification module',
-          links: [
-            { type: 'doc', href: 'https://cworld0.com/blog/pure-baidu' },
-            { type: 'site', href: 'https://userstyles.org/styles/173673/pure' }
-          ]
-        }
-      ]}
-    />
-  </Collapse>
-
-  <h2 id='learnings'>Learnings</h2>
-  <ProjectSection
-    class='my-2'
-    projects={[
-      {
-        name: 'Rust Learning',
-        description: 'Some notes and code about CWorld learning Rust',
-        links: [{ type: 'github', href: 'https://github.com/cworld1/rust-learning' }]
-      },
-      {
-        name: 'CS 213 Learning',
-        description: 'Notes, code and experiences for Introduction to Computer Systems course',
-        links: [
-          {
-            type: 'github',
-            href: 'https://github.com/zhuozhiyongde/Introduction-To-Computer-System-2023Fall-PKU'
-          }
-        ]
       }
     ]}
   />
-
   <h2 id='others'>Others</h2>
   <ProjectSection
     projects={[
@@ -142,11 +89,7 @@ const headings = [
     ]}
   />
   <p>❤️感谢以下赞助伙伴的投喂:</p>
-  <Sponsors
-    sponsors={[
-      { name: 'waby', amount: '10.00', date: '2025-10-10' }
-    ]}
-  />
+  <Sponsors sponsors={[{ name: 'waby', amount: '10.00', date: '2025-10-10' }]} />
 </PageLayout>
 
 <style>

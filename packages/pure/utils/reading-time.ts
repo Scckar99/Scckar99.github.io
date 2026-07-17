@@ -1,6 +1,5 @@
 'use strict'
 
-// Tks for issue https://github.com/cworld1/astro-theme-pure/issues/36
 // CJK character ranges
 const CJK_RANGES = [
   [0x4e00, 0x9fff], // CJK Unified Ideographs

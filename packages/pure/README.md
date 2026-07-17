@@ -1,24 +1,17 @@
-# Astro Theme Pure (Integration Package)
+# Local Blog Integration Package
 
-A simple, fast and powerful blog & document theme built by Astro.
+The local Astro integration package used by [Scckar's Blog](https://scckar99.github.io/).
 
-[![GitHub deployments](https://img.shields.io/github/deployments/cworld1/astro-theme-pure/production?style=flat&logo=vercel&label=vercel)](https://astro-pure.js.org/)
-[![NPM Version](https://img.shields.io/npm/v/astro-pure?style=flat)](https://www.npmjs.com/package/astro-pure)
-[![GitHub License](https://img.shields.io/github/license/cworld1/astro-theme-pure?style=flat)](https://github.com/cworld1/astro-theme-pure/blob/main/LICENSE)
-
-![img](https://github.com/user-attachments/assets/6c42b061-df7e-4696-a29b-bff07fe17d88)
+This package contains the reusable layouts, components, schemas, utilities and CLI helpers required by the site. It is consumed through the local `file:packages/pure` dependency and is not published independently.
 
 ## Usage
 
-### Use with theme template
+Install dependencies from the repository root, then start the development server:
 
-See [Getting Started](https://astro-pure.js.org/docs/setup/getting-started).
-
-### Use with common Astro project
-
-See [User Components](https://astro-pure.js.org/docs/integrations/components) & [Advanced Components](https://astro-pure.js.org/docs/integrations/advanced) to learn how to use.
-
-> Some part of Advanced Components may require Astro Integration config.
+```shell
+pnpm install
+pnpm run dev
+```
 
 #### UnoCSS
 
