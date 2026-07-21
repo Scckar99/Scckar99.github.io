@@ -6,16 +6,24 @@ import { PostPreview } from 'astro-pure/components/pages'
 import { getBlogCollection, sortMDByDate } from 'astro-pure/server'
 import { Button, Card, Icon, Label } from 'astro-pure/user'
 import PageLayout from '@/layouts/BaseLayout.astro'
-
 import ProjectCard from '@/components/home/ProjectCard.astro'
 import Section from '@/components/home/Section.astro'
 import SkillLayout from '@/components/home/SkillLayout.astro'
 import avatar from '@/assets/avatar.png'
 import config from '@/site-config'
 
-const languages = ['Python', 'JavaScript', 'TypeScript', 'SQL']
-const ai_tech = ['TensorFlow', 'PyTorch', 'LangChain', 'RAG', 'Agent', 'Workflow']
-const tools = ['Git', 'Vim', 'RPA', 'Docker', 'Vscode', 'AI IDE']
+const languages = ['Python', 'TypeScript', 'JavaScript', 'SQL']
+const aiAgents = ['LangGraph', 'RAG', 'Multimodal LLM', 'Qwen', 'OpenAI API']
+const engineering = [
+  'FastAPI',
+  'Pydantic',
+  'React',
+  'Next.js',
+  'SQLite',
+  'pytest',
+  'Docker',
+  'systemd'
+]
 
 const MAX_POSTS = 10
 const allPosts = await getBlogCollection()
@@ -55,35 +63,35 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
 
     <div id='content' class='animate flex flex-col gap-y-10 md:w-4/5 lg:w-5/6'>
       <Section title='About'>
-        <p class='text-muted-foreground'>Developer / Designer</p>
+        <p class='text-muted-foreground'>AI Engineer / Agent Developer</p>
         <p class='text-muted-foreground'>
-          专注于人工智能技术研发，致力于将 AI 技术应用于实际业务场景。<br>
-          擅长机器学习、深度学习、自然语言处理等前沿技术，具备AI模型开发与部署经验。<br>
-          熟悉智能体(Agent)系统设计、工作流自动化、知识库构建、RPA机器人流程自动化、RAG检索增强生成等企业级AI解决方案。<br>
-          热爱探索新技术，关注AI领域的最新发展动态，致力于推动AI技术的创新应用。
+          目前专注于企业 AI 应用与智能体落地，使用 Python、FastAPI 与大模型
+          API，将智能体、多模态识别能力和企业内部系统连接成可执行的业务工具。<br />
+          具备智能体工作流、RAG 知识检索、票据与图像识别、业务系统集成及自动化流程开发经验。<br />
+          重视完整工程交付，通过接口契约、自动化测试、运行日志和评测体系，让 AI 应用可验证、可追踪、可部署。
         </p>
 
-      <!-- Shields.io徽章 -->
-    <div class='flex flex-wrap gap-2 mb-4 dark:opacity-90 dark:contrast-125'>
-      <img
-        src='https://img.shields.io/badge/Code%20Time-2500%2B%20hours-blue'
-        alt='Code Time'
-        loading='lazy'
-        class='h-5'
-      />
-      <img
-        src='https://img.shields.io/badge/Streak-365%2B%20days-orange'
-        alt='Streak'
-        loading='lazy'
-        class='h-5'
-      />
-      <img
-        src='https://img.shields.io/badge/Languages-10%2B-green'
-        alt='Languages'
-        loading='lazy'
-        class='h-5'
-      />
-    </div>
+        <!-- Shields.io徽章 -->
+        <div class='flex flex-wrap gap-2 mb-4 dark:opacity-90 dark:contrast-125'>
+          <img
+            src='https://img.shields.io/badge/Code%20Time-2500%2B%20hours-blue'
+            alt='Code Time'
+            loading='lazy'
+            class='h-5'
+          />
+          <img
+            src='https://img.shields.io/badge/Streak-365%2B%20days-orange'
+            alt='Streak'
+            loading='lazy'
+            class='h-5'
+          />
+          <img
+            src='https://img.shields.io/badge/Languages-10%2B-green'
+            alt='Languages'
+            loading='lazy'
+            class='h-5'
+          />
+        </div>
 
         <Button title='More about me' class='w-fit self-end' href='/about' variant='ahead' />
       </Section>
@@ -138,8 +146,8 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
 
       <Section title='Skills'>
         <SkillLayout title='Languages' skills={languages} />
-        <SkillLayout title='AI Tech' skills={ai_tech} />
-        <SkillLayout title='Tools' skills={tools} />
+        <SkillLayout title='AI & Agents' skills={aiAgents} />
+        <SkillLayout title='Engineering' skills={engineering} />
       </Section>
     </div>
     <Quote class='mt-12' />
