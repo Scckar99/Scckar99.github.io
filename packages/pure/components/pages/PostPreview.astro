@@ -33,8 +33,8 @@ const postDate = data.updatedDate ?? data.publishDate
 >
   <a
     class={cn(
-      'group/link w-full flex flex-col transition-all hover:text-primary',
-      !detailed && 'sm:flex-row',
+      'group/link w-full flex flex-col gap-y-1 transition-all hover:text-primary',
+      !detailed && 'sm:flex-row sm:gap-x-4 sm:gap-y-0',
       detailed && data.heroImage && 'max-md:pt-24'
     )}
     href={`/blog/${id}`}
