@@ -11,6 +11,7 @@ import wechat from '@/assets/wechat-qrcode.jpg'
 const headings = [
   { depth: 2, slug: 'theme', text: "Blog's theme" },
   { depth: 2, slug: 'programs', text: 'Programs' },
+  { depth: 2, slug: 'private', text: 'Private Projects' },
   { depth: 2, slug: 'others', text: 'Others' },
   { depth: 2, slug: 'sponsorship', text: 'Sponsorship' }
 ]
@@ -65,6 +66,64 @@ const headings = [
             href: 'https://github.com/Scckar99/word2md/blob/main/README.md'
           }
         ]
+      },
+      {
+        name: '🧾 foreign-invoice-eval',
+        description:
+          '本地优先的多模态票据评测台：用千问视觉模型识别国外发票/国内小票，分类、提取、历史汇率换算与人工标注分链路考核准确率。',
+        links: [
+          { type: 'github', href: 'https://github.com/Scckar99/foreign-invoice-eval' },
+          {
+            type: 'doc',
+            href: 'https://github.com/Scckar99/foreign-invoice-eval/blob/main/README.md'
+          }
+        ]
+      }
+    ]}
+  />
+
+  <h2 id='private'>Private Projects</h2>
+  <p>以下为私有仓库，仅展示项目说明，不提供公开访问链接。</p>
+  <ProjectSection
+    projects={[
+      {
+        name: '🔒 visitor-reception-agent',
+        description:
+          '面向业务员的钉钉单聊 AI 行政助手，支持自然语言来访登记、信息补问、接待方案生成，并联动 OMS/钉钉处理会议室、用车、欢迎牌和茶歇等流程。',
+        links: []
+      },
+      {
+        name: '🔒 ai-assistant-agent',
+        description: 'AI 助理智能体 · 多功能项目仓库（含奥马费控接口测试套件）',
+        links: []
+      },
+      {
+        name: '🔒 loglens',
+        description:
+          '纯浏览器运行的日志解析与可视化工具，支持四类格式、筛选统计与请求链路追踪，日志数据不离开本机。',
+        links: []
+      },
+      {
+        name: '🔒 scckar-waline',
+        description: 'Scckar 博客的 Waline 评论服务',
+        links: []
+      },
+      {
+        name: '🔒 rubber-plate-crop',
+        description:
+          '面向胶板采数场景的智能裁剪与接口服务项目，支持 PDF 胶板图自动识别、多目标裁剪、图片压缩，并将结果标准化推送至下游系统。',
+        links: []
+      },
+      {
+        name: '🔒 hr-assistant-agent',
+        description:
+          '企业内钉钉人事助理机器人，基于 LangGraph 与 Qwen 实现 O 类员工离职登记、重点群体查询、权限校验与 HR 接口集成。',
+        links: []
+      },
+      {
+        name: '🔒 tape-reader-private',
+        description: '基于 GPT 的胶板读数工具，支持图片长度识别、批量测评和 HTTP 接口调用。',
+        links: []
       }
     ]}
   />

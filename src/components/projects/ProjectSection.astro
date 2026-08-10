@@ -69,13 +69,19 @@ const projectIconSet: Record<string, iconsType> = {
                 imagePath && 'me-20'
               )}
             >
-              <a
-                class='line-clamp-1 font-medium text-foreground no-underline transition-colors'
-                href={project.links[0].href}
-                target='_blank'
-              >
-                {project.name}
-              </a>
+              {project.links.length > 0 ? (
+                <a
+                  class='line-clamp-1 font-medium text-foreground no-underline transition-colors'
+                  href={project.links[0].href}
+                  target='_blank'
+                >
+                  {project.name}
+                </a>
+              ) : (
+                <span class='line-clamp-1 font-medium text-foreground'>
+                  {project.name}
+                </span>
+              )}
               <div class='line-clamp-2 leading-snug text-muted-foreground sm:h-12'>
                 {project.description}
               </div>
