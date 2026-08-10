@@ -36,7 +36,7 @@ const headings = [
     projects={[
       {
         name: "🪪 Scckar's Blog",
-        description: '基于 Astro 构建并持续改造的个人博客网站',
+        description: '基于 Astro 的个人技术博客，记录企业 AI、智能体与软件开发实践。',
         links: [{ type: 'github', href: 'https://github.com/Scckar99/Scckar99.github.io' }]
       }
     ]}
@@ -47,7 +47,7 @@ const headings = [
     projects={[
       {
         name: '🖼️ ImageFlowKit',
-        description: '一套完整的图片批量处理工具，包含方向矫正、白边裁剪、内容提取等功能。',
+        description: '图片批量处理工具集，支持方向矫正、白边裁剪与内容分割提取。',
         links: [
           { type: 'github', href: 'https://github.com/Scckar99/ImageFlowKit' },
           {
@@ -57,8 +57,9 @@ const headings = [
         ]
       },
       {
-        name: '📝 word2md',
-        description: 'Word 文档转 Markdown 工具，便于文档整理与内容迁移。',
+        name: '📝 word2md (Fork)',
+        description:
+          'Word 转 Markdown 桌面工具，支持图片、公式、表格、批量转换与 Windows 独立运行。',
         links: [
           { type: 'github', href: 'https://github.com/Scckar99/word2md' },
           {
@@ -69,8 +70,7 @@ const headings = [
       },
       {
         name: '🧾 foreign-invoice-eval',
-        description:
-          '本地优先的多模态票据评测台：用千问视觉模型识别国外发票/国内小票，分类、提取、历史汇率换算与人工标注分链路考核准确率。',
+        description: '本地优先的多模态票据评测台，支持分类、字段提取、汇率换算与人工标注评测。',
         links: [
           { type: 'github', href: 'https://github.com/Scckar99/foreign-invoice-eval' },
           {
@@ -88,41 +88,54 @@ const headings = [
     projects={[
       {
         name: '🔒 visitor-reception-agent',
+        description: '钉钉 AI 行政助手，联动 OMS、会议室、用车与接待物料完成来访接待流程。',
+        links: []
+      },
+      {
+        name: '🔒 neixiao-shaidan-ai-agent',
         description:
-          '面向业务员的钉钉单聊 AI 行政助手，支持自然语言来访登记、信息补问、接待方案生成，并联动 OMS/钉钉处理会议室、用车、欢迎牌和茶歇等流程。',
+          '基于 Qwen 视觉模型的内销晒单审核智能体，识别销售凭证与转账截图并输出审核结果。',
         links: []
       },
       {
         name: '🔒 ai-assistant-agent',
-        description: 'AI 助理智能体 · 多功能项目仓库（含奥马费控接口测试套件）',
+        description: '钉钉企业 AI 助理，覆盖出差、休假、发票票夹与费用报销等业务流程。',
         links: []
       },
       {
         name: '🔒 loglens',
-        description:
-          '纯浏览器运行的日志解析与可视化工具，支持四类格式、筛选统计与请求链路追踪，日志数据不离开本机。',
+        description: '本地运行的日志解析与可视化工具，支持格式识别、筛选统计与请求链路追踪。',
         links: []
       },
       {
         name: '🔒 scckar-waline',
-        description: 'Scckar 博客的 Waline 评论服务',
+        description: '个人博客使用的 Waline 评论服务。',
         links: []
       },
       {
         name: '🔒 rubber-plate-crop',
+        description: 'PDF 胶板图智能裁剪服务，支持多目标识别、图片压缩与下游接口推送。',
+        links: []
+      },
+      {
+        name: '🔒 daily-ai-news-bot',
         description:
-          '面向胶板采数场景的智能裁剪与接口服务项目，支持 PDF 胶板图自动识别、多目标裁剪、图片压缩，并将结果标准化推送至下游系统。',
+          '基于 LangGraph、Qwen 与钉钉的 AI 日报机器人，支持资讯采集、摘要筛选、定时调度与定向推送。',
         links: []
       },
       {
         name: '🔒 hr-assistant-agent',
-        description:
-          '企业内钉钉人事助理机器人，基于 LangGraph 与 Qwen 实现 O 类员工离职登记、重点群体查询、权限校验与 HR 接口集成。',
+        description: '钉钉人事助理机器人，支持离职登记、重点群体查询、权限校验与 HR 系统集成。',
         links: []
       },
       {
         name: '🔒 tape-reader-private',
-        description: '基于 GPT 的胶板读数工具，支持图片长度识别、批量测评和 HTTP 接口调用。',
+        description: '基于视觉大模型的胶板读数工具，支持图片测量、批量评测与 HTTP 接口调用。',
+        links: []
+      },
+      {
+        name: '🔒 source-agent',
+        description: '钉钉寻源智能体 Demo，结合全网搜索、地图与企业信息查询生成供应商推荐。',
         links: []
       }
     ]}
@@ -132,7 +145,7 @@ const headings = [
     projects={[
       {
         name: 'Scckar',
-        description: "Scckar's Github",
+        description: '企业 AI 应用、智能体与多模态业务系统实践。',
         links: [{ type: 'github', href: 'https://github.com/Scckar99' }]
       }
     ]}
