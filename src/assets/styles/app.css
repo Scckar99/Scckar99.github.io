@@ -112,4 +112,5 @@ a {
 .home-experience-card,
 .home-education-card {
   background-color: hsl(var(--card) / 1) !important;
+  border: 1px solid hsl(var(--border) / 1) !important;
 }
