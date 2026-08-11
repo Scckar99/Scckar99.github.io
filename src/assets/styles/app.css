@@ -107,3 +107,9 @@ a {
     color: hsl(var(--primary) / var(--un-text-opacity, 1));
   }
 }
+
+/* Experience section cards */
+.home-experience-card,
+.home-education-card {
+  background-color: hsl(var(--card) / 1) !important;
+}
