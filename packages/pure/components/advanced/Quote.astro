@@ -5,16 +5,51 @@ const { class: className } = Astro.props
 ---
 
 <quote-component class={cn('not-prose inline-block', className)}>
-  <div class='flex flex-row items-center gap-x-3 rounded-full border px-4 py-2 text-sm shadow-sm'>
+  <div class='quote-frame flex flex-row items-center gap-x-3 rounded-full border px-4 py-2 text-sm'>
     <span class='relative flex items-center justify-center'>
-      <span
-        class='absolute size-2 animate-ping rounded-full border border-green-400 bg-green-400 opacity-75'
-      ></span>
-      <span class='size-2 rounded-full bg-green-400'></span>
+      <span class='quote-dot-pulse absolute size-2 rounded-full border'></span>
+      <span class='quote-dot size-2 rounded-full'></span>
     </span>
     <p id='quote-sentence' class='font-medium text-muted-foreground'>要在太阳升起时比昨天更幸福.</p>
   </div>
 </quote-component>
+
+<style>
+  .quote-frame {
+    transition:
+      transform 600ms cubic-bezier(0.32, 0.72, 0, 1),
+      box-shadow 600ms cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  .quote-frame:hover {
+    transform: translateY(-1px);
+  }
+
+  .quote-dot,
+  .quote-dot-pulse {
+    border-color: hsl(var(--foreground) / 0.28);
+    background-color: hsl(var(--foreground) / 0.52);
+  }
+
+  .quote-dot-pulse {
+    opacity: 0.2;
+    transform: scale(1.7);
+  }
+
+  :global(html:not(.dark)) .quote-frame {
+    border-color: rgba(60, 60, 67, 0.12);
+    background: rgba(255, 255, 255, 0.54);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.95),
+      0 10px 28px rgba(44, 48, 56, 0.055);
+  }
+
+  :global(html.dark) .quote-dot,
+  :global(html.dark) .quote-dot-pulse {
+    border-color: rgb(74 222 128 / 0.8);
+    background-color: rgb(74 222 128);
+  }
+</style>
 
 <script>
   import config from 'virtual:config'

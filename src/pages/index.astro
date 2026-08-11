@@ -30,7 +30,7 @@ const allPosts = await getBlogCollection()
 const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
 ---
 
-<PageLayout meta={{ title: 'Home' }} highlightColor='#659EB9'>
+<PageLayout meta={{ title: 'Home' }}>
   <div class='home-grid-bg' aria-hidden='true'></div>
   <main class='flex w-full flex-col items-center'>
     <section class='animate mb-10 flex flex-col items-center gap-y-7' id='content-header'>
@@ -77,19 +77,19 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
             src='https://img.shields.io/badge/Code%20Time-2500%2B%20hours-blue'
             alt='Code Time'
             loading='lazy'
-            class='h-5'
+            class='home-metric h-5'
           />
           <img
             src='https://img.shields.io/badge/Streak-365%2B%20days-orange'
             alt='Streak'
             loading='lazy'
-            class='h-5'
+            class='home-metric h-5'
           />
           <img
             src='https://img.shields.io/badge/Languages-10%2B-green'
             alt='Languages'
             loading='lazy'
-            class='h-5'
+            class='home-metric h-5'
           />
         </div>
 
@@ -131,13 +131,14 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
       <Section title='Education'>
         <Card
           as='a'
+          class='home-education-card'
           heading='Yunnan University'
           subheading='智能科学与技术 学士学位'
           date='Sept 2021 - July 2025'
           href='https://www.ynu.edu.cn/'
         >
           <img
-            class='absolute end-0 z-0 m-0 -my-3 h-full w-1/2 object-cover opacity-40'
+            class='education-mark absolute end-0 z-0 m-0 -my-3 h-full w-1/2 object-cover'
             src='/images/云南大学-logo.svg'
             alt='云南大学'
           />

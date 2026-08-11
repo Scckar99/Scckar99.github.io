@@ -19,7 +19,7 @@ export function setTheme(theme?: string, save = false) {
   document.documentElement.classList.toggle('dark', theme === 'dark')
   document
     .querySelector('meta[name="theme-color"]')
-    ?.setAttribute('content', theme === 'dark' ? '#090D15' : '#F4F7FD')
+    ?.setAttribute('content', theme === 'dark' ? '#090D15' : '#F5F5F7')
 
   return theme
 }
