@@ -87,17 +87,14 @@ if (!images[imagePath])
   }
 
   :global(html.dark) .project-card-shell {
-    background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
+    background-image: none;
+    background-color: transparent;
     box-shadow: none;
   }
 
   :global(html.dark) .project-card-shell:hover {
     box-shadow: 0 0 30px 1px rgba(0, 255, 117, 0.3);
     transform: none;
-  }
-
-  :global(html.dark) .project-card-shell:hover .project-card {
-    transform: scale(0.985);
   }
 
   .project-card-fg {

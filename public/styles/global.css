@@ -123,12 +123,10 @@ html:not(.dark) .avatar-glow::before {
     0 14px 34px rgba(80, 91, 108, 0.18);
 }
 
-/* Dark mode - Purple to cyan */
-html.dark .avatar-glow::before {
-  background-image: linear-gradient(rgb(186, 66, 255) 35%, rgb(0, 225, 255));
-  box-shadow:
-    0px -5px 20px 0px rgb(186, 66, 255),
-    0px 5px 20px 0px rgb(0, 225, 255);
+/* Dark mode - no decorative glow */
+html.dark .avatar-glow::before,
+html.dark .avatar-glow::after {
+  display: none;
 }
 
 /* Animation */
