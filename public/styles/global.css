@@ -93,42 +93,6 @@ html:not(.dark) .home-skill-pill:focus-visible {
   transform: scale(1.018);
 }
 
-/* Glow effect base */
-.avatar-glow::before {
-  content: '';
-  position: absolute;
-  width: 8rem;
-  height: 8rem;
-  border-radius: 50%;
-  filter: blur(1px);
-  z-index: 0;
-}
-
-.avatar-glow::after {
-  content: '';
-  position: absolute;
-  width: 8rem;
-  height: 8rem;
-  border-radius: 50%;
-  background-color: hsl(var(--background) / 1);
-  filter: blur(10px);
-  z-index: 1;
-}
-
-/* Light mode - Apple style */
-html:not(.dark) .avatar-glow::before {
-  background-image: linear-gradient(145deg, #fefeff 12%, #cfd4dc 48%, #9da7b5 100%);
-  box-shadow:
-    0 -8px 24px rgba(255, 255, 255, 0.92),
-    0 14px 34px rgba(80, 91, 108, 0.18);
-}
-
-/* Dark mode - no decorative glow */
-html.dark .avatar-glow::before,
-html.dark .avatar-glow::after {
-  display: none;
-}
-
 /* Animation */
 @keyframes fade-in-up {
   0% {
