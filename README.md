@@ -16,22 +16,14 @@
   </p>
 
   <p>
-    <a href="https://github.com/Scckar99/Scckar99.github.io/actions/workflows/deploy.yml">
-      <img src="https://github.com/Scckar99/Scckar99.github.io/actions/workflows/deploy.yml/badge.svg" alt="Deploy to GitHub Pages" />
-    </a>
-    <a href="https://astro.build/">
-      <img src="https://img.shields.io/badge/Astro-5-BC52EE?logo=astro&logoColor=white" alt="Astro 5" />
-    </a>
-    <a href="https://www.typescriptlang.org/">
-      <img src="https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white" alt="TypeScript 5" />
-    </a>
-    <a href="./LICENSE">
-      <img src="https://img.shields.io/github/license/Scckar99/Scckar99.github.io" alt="Apache 2.0 License" />
-    </a>
+    <a href="https://github.com/Scckar99/Scckar99.github.io/actions/workflows/deploy.yml"><img src="https://github.com/Scckar99/Scckar99.github.io/actions/workflows/deploy.yml/badge.svg" alt="Deploy to GitHub Pages" /></a>&nbsp;&nbsp;
+    <a href="https://astro.build/"><img src="https://img.shields.io/badge/Astro-5-BC52EE?logo=astro&logoColor=white" alt="Astro 5" /></a>&nbsp;&nbsp;
+    <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white" alt="TypeScript 5" /></a>&nbsp;&nbsp;
+    <a href="./LICENSE"><img src="https://img.shields.io/github/license/Scckar99/Scckar99.github.io" alt="Apache 2.0 License" /></a>
   </p>
 </div>
 
-![Scckar's Blog 首页预览](./.github/assets/readme-preview.webp)
+![Scckar's Blog 首页预览](./.github/assets/readme-preview.png)
 
 ## 项目简介
 
